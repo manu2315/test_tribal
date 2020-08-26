@@ -7,4 +7,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Google_sing_in_custom" parent="FirebaseUI.Button.AccountChooser.GoogleButton">
+        <item name="drawableStartCompat">@drawable/fui_ic_googleg_color_24dp</item>
+        <item name="android:background">@drawable/rounded_corner_button</item>
+        <item name="android:textColor">@color/colorPrimaryTextColor</item>
+    </style>
+
 </resources>
