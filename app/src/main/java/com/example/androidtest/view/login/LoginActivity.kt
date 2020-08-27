@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.databinding.DataBindingUtil
 import com.example.androidtest.R
+import com.example.androidtest.data.UserLogged
 import com.example.androidtest.databinding.ActivityLoginBinding
 import com.example.androidtest.view.main.MainActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -89,6 +90,7 @@ class LoginActivity : AppCompatActivity() {
                 putExtra(EXTRA_EMAIL, currentUser.email)
                 putExtra(EXTRA_NAME,currentUser.displayName)
             }
+            UserLogged.createUser(currentUser.displayName!!,currentUser.email!!)
             startActivity(intent)
             finish()
         }
