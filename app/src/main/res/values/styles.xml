@@ -13,4 +13,9 @@
         <item name="android:textColor">@color/colorPrimaryTextColor</item>
     </style>
 
+    <style name="Buttom_Style">
+        <item name="android:background">@drawable/rounded_corner_button</item>
+        <item name="android:textColor">@color/colorPrimaryTextColor</item>
+    </style>
+
 </resources>

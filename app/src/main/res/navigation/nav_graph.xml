@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/tasksFragment"
-        android:name="com.example.androidtest.view.tasks.TasksFragment"
+        android:name="com.example.androidtest.presentation.tasks.TasksFragment"
         android:label="fragment_tasks"
         tools:layout="@layout/fragment_tasks"
         app:popUpToInclusive="true"
@@ -22,12 +22,12 @@
     </fragment>
     <fragment
         android:id="@+id/collaboratorFragment"
-        android:name="com.example.androidtest.view.collaborator.CollaboratorFragment"
+        android:name="com.example.androidtest.presentation.collaborator.CollaboratorFragment"
         android:label="fragment_collaborator"
         tools:layout="@layout/fragment_collaborator" />
     <fragment
         android:id="@+id/addCollaboratorFragment"
-        android:name="com.example.androidtest.view.addCollaborator.AddCollaboratorFragment"
+        android:name="com.example.androidtest.presentation.addCollaborator.AddCollaboratorFragment"
         android:label="fragment_add_collaborator"
         tools:layout="@layout/fragment_add_collaborator" />
 </navigation>

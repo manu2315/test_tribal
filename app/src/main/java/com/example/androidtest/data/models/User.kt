@@ -1,4 +1,4 @@
-package com.example.androidtest.data
+package com.example.androidtest.data.models
 
 data class User(
     val name:String,

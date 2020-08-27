@@ -1,4 +1,4 @@
-package com.example.androidtest.view.login
+package com.example.androidtest.presentation.login
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,9 +6,9 @@ import android.os.Bundle
 import android.util.Log
 import androidx.databinding.DataBindingUtil
 import com.example.androidtest.R
-import com.example.androidtest.data.UserLogged
+import com.example.androidtest.data.objects.UserLogged
 import com.example.androidtest.databinding.ActivityLoginBinding
-import com.example.androidtest.view.main.MainActivity
+import com.example.androidtest.presentation.main.MainActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions

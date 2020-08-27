@@ -7,4 +7,6 @@
     <string name="add_collaborators">Agregar Colaborador</string>
     <string name="welcome_text">Bienvenido %1$s \nUsuario:%2$s</string>
     <string name="main">Inicio</string>
+    <string name="write_name">Escribe tu nombre</string>
+    <string name="write_email">Escribe tu correo electronico</string>
 </resources>

@@ -1,20 +1,13 @@
-package com.example.androidtest.view.main
+package com.example.androidtest.presentation.main
 
 import android.os.Bundle
-import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import com.example.androidtest.R
 import com.example.androidtest.databinding.ActivityMainBinding
-import com.example.androidtest.view.tasks.TasksFragmentDirections
 
 
 class MainActivity : AppCompatActivity() {
@@ -22,7 +15,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding=DataBindingUtil.setContentView(this, R.layout.activity_main)
-
+        supportActionBar?.hide()
         //mBinding.bottomNav.setupWithNavController(Navigation.findNavController(this,R.id.nav_host_fragment))
         //val navigationItemSelectedListener: BottomNavigationView.OnNavigationItemSelectedListener =
         setUpNavigation()

@@ -1,13 +1,12 @@
-package com.example.androidtest.view.tasks
+package com.example.androidtest.presentation.tasks
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
 import com.example.androidtest.R
-import com.example.androidtest.data.UserLogged
+import com.example.androidtest.data.objects.UserLogged
 import com.example.androidtest.databinding.FragmentTasksBinding
 
 
@@ -29,7 +28,7 @@ class TasksFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val user=UserLogged.getUser()
+        val user= UserLogged.getUser()
         binding.welcomeText.text=getString(R.string.welcome_text,user?.name,user?.email)
 
     }

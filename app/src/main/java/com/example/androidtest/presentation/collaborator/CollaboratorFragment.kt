@@ -1,4 +1,4 @@
-package com.example.androidtest.view.addCollaborator
+package com.example.androidtest.presentation.collaborator
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,12 +7,18 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.androidtest.R
 
+// TODO: Rename parameter arguments, choose names that match
+// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+private const val ARG_PARAM1 = "param1"
+private const val ARG_PARAM2 = "param2"
 
-class AddCollaboratorFragment : Fragment() {
+
+class CollaboratorFragment : Fragment() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
     }
 
     override fun onCreateView(
@@ -20,7 +26,7 @@ class AddCollaboratorFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_collaborator, container, false)
+        return inflater.inflate(R.layout.fragment_collaborator, container, false)
     }
 
 }

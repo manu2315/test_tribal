@@ -1,14 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.addCollaborator.AddCollaboratorFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.addCollaborator.AddCollaboratorFragment">
+    <data>
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    </data>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Add Collaborator" />
+        android:orientation="vertical"
+        >
 
-</FrameLayout>
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/ThemeOverlay.MaterialComponents.Light"
+            app:title="@string/add_collaborators" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <LinearLayout
+                android:id="@+id/layoutWrite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputlayoutName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/inputName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:digits="ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
+                        android:hint="@string/write_name"
+                        android:imeOptions="actionDone"
+                        android:inputType="textPersonName|textCapCharacters"
+                        android:maxLength="45"
+                        android:singleLine="true"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputlayoutEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/inputEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/write_email"
+                        android:imeOptions="actionDone"
+                        android:inputType="textPersonName|textCapCharacters"
+                        android:maxLength="45"
+                        android:singleLine="true"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <Button
+                    android:id="@+id/sing_in"
+                    android:text="@string/add_collaborators"
+                    android:textAlignment="center"
+                    style="@style/Buttom_Style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    />
+            </LinearLayout>
+
+        </ScrollView>
+    </LinearLayout>
+</layout>

@@ -52,6 +52,21 @@ dependencies {
     implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
+    // Koin for Android
+    implementation "org.koin:koin-android:$koin_version"
+    // Koin AndroidX Scope feature
+    implementation "org.koin:koin-androidx-scope:$koin_version"
+    // Koin AndroidX ViewModel feature
+    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
+    // Koin AndroidX Fragment Factory (unstable version)
+    implementation "org.koin:koin-androidx-fragment:$koin_version"
+    // Koin for Kotlin
+    implementation "org.koin:koin-core:$koin_version"
+    // Koin Extended & experimental features
+    implementation "org.koin:koin-core-ext:$koin_version"
+
+    // Koin for Unit tests
+    testImplementation "org.koin:koin-test:$koin_version"
     //Unitary Testing
     testImplementation 'junit:junit:4.13'
 
