@@ -1,13 +1,13 @@
-package com.example.androidtest
+package com.example.androidtest.view.login
 
-import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.databinding.DataBindingUtil
+import com.example.androidtest.R
 import com.example.androidtest.databinding.ActivityLoginBinding
-import com.firebase.ui.auth.AuthUI
+import com.example.androidtest.view.main.MainActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -16,12 +16,11 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
-import kotlin.math.sign
 
 class LoginActivity : AppCompatActivity() {
 
 
-    private val TAG=LoginActivity::class.java.name
+    private val TAG= LoginActivity::class.java.name
     private lateinit var mBinding:ActivityLoginBinding
     private lateinit var auth: FirebaseAuth
     private val RC_SIGN_IN=1;
@@ -30,7 +29,7 @@ class LoginActivity : AppCompatActivity() {
     private val EXTRA_NAME="name"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mBinding=DataBindingUtil.setContentView(this,R.layout.activity_login)
+        mBinding=DataBindingUtil.setContentView(this, R.layout.activity_login)
         auth = FirebaseAuth.getInstance()
         supportActionBar?.hide()
         setupGoogleSingIn()
