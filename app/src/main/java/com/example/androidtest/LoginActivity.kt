@@ -26,10 +26,13 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private val RC_SIGN_IN=1;
     private lateinit var googleSignInClient: GoogleSignInClient
+    private val EXTRA_EMAIL="email"
+    private val EXTRA_NAME="name"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding=DataBindingUtil.setContentView(this,R.layout.activity_login)
         auth = FirebaseAuth.getInstance()
+        supportActionBar?.hide()
         setupGoogleSingIn()
         click()
     }
@@ -55,7 +58,6 @@ class LoginActivity : AppCompatActivity() {
             } catch (e: ApiException) {
                 // Google Sign In failed, update UI appropriately
                 Log.w(TAG, "Google sign in failed", e)
-                // ...
             }
         }
     }
@@ -77,13 +79,19 @@ class LoginActivity : AppCompatActivity() {
                     updateUI(null)
                 }
 
-                // ...
             }
     }
 
     private fun updateUI(currentUser:FirebaseUser?){
         if(currentUser!=null){
-            Snackbar.make(mBinding.root.rootView, "Authentication Success!!.", Snackbar.LENGTH_SHORT).show()
+            //Snackbar.make(mBinding.root.rootView, "Authentication Success!!.", Snackbar.LENGTH_SHORT).show()
+            val intent = Intent(this, MainActivity::class.java).apply {
+                flags= Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                putExtra(EXTRA_EMAIL, currentUser.email)
+                putExtra(EXTRA_NAME,currentUser.displayName)
+            }
+            startActivity(intent)
+            finish()
         }
 
     }
@@ -103,17 +111,6 @@ class LoginActivity : AppCompatActivity() {
             .build()
         googleSignInClient= GoogleSignIn.getClient(this,gso)
     }
-
-    /*private fun googleSingIn(){
-        val providers = arrayListOf(
-            AuthUI.IdpConfig.GoogleBuilder().build())
-        startActivityForResult(
-            AuthUI.getInstance()
-                .createSignInIntentBuilder()
-                .setAvailableProviders(providers)
-                .build(),
-            RC_SIGN_IN)
-    }*/
 
 
 }
