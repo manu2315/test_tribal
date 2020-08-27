@@ -3,6 +3,8 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.google.gms.google-services'
 apply plugin: "androidx.navigation.safeargs.kotlin"
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
@@ -65,10 +67,23 @@ dependencies {
     // Koin Extended & experimental features
     implementation "org.koin:koin-core-ext:$koin_version"
 
+    // Room
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation "androidx.room:room-ktx:$room_version"
+
+    // optional - Test helpers
+    testImplementation "androidx.room:room-testing:$room_version"
+
     // Koin for Unit tests
     testImplementation "org.koin:koin-test:$koin_version"
     //Unitary Testing
     testImplementation 'junit:junit:4.13'
+
+    // optional - Test helpers
+    testImplementation "androidx.room:room-testing:$room_version"
 
     // Instrumented Testing
     androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
