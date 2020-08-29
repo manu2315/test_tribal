@@ -34,6 +34,7 @@ class TasksFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.lifecycleOwner=this.viewLifecycleOwner
         val user= UserLogged.getUser()
         binding.welcomeText.text=getString(R.string.welcome_text,user?.name,user?.email)
 

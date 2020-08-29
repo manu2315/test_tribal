@@ -1,9 +1,11 @@
 package com.example.androidtest.data.datasource.network
 
+import com.squareup.moshi.Moshi
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 
 object Retrofit {
@@ -28,7 +30,7 @@ object Retrofit {
 
         return Retrofit.Builder()
             .baseUrl(baseUrl)
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(MoshiConverterFactory.create(Moshi.Builder().build())) //.addConverterFactory(MoshiConverterFactory.create())
             .client(okHttpClient!!)
             .build()
     }

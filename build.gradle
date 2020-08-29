@@ -19,6 +19,9 @@ buildscript {
         logging_interceptor="4.8.1"
         //Timber log
         timber_version="4.7.1"
+        //Moshi
+        moshi_version="1.9.3"
+        moshi_adapter_version="2.9.0"
     }
     repositories {
         google()

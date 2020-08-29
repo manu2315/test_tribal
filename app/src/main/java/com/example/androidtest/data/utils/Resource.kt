@@ -1,6 +1,6 @@
 package com.example.androidtest.data.utils
 
-data class Resource<out T>(val status: Status, val data: T?, val message: String?) {
+data class Resource<T>(var status: Status, var data: T?, var message: String?) {
 
     enum class Status{SUCCESS,ERROR,LOADING}
     companion object {
