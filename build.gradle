@@ -10,6 +10,13 @@ buildscript {
         koin_android_version = '2.0.1'
         //Room
         room_version = "2.2.5"
+        //Gson verison
+        gson_version = "2.8.6"
+        gson_converter = "2.6.2"
+        //Retrofit
+        retrofit_version="2.9.0"
+        //Logging_Interceptor
+        logging_interceptor="4.8.1"
     }
     repositories {
         google()
