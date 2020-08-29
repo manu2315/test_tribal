@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import com.example.androidtest.R
 import com.example.androidtest.data.objects.UserLogged
 import com.example.androidtest.databinding.ActivityLoginBinding
+import com.example.androidtest.presentation.base.BaseActivity
 import com.example.androidtest.presentation.main.MainActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -18,7 +19,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : BaseActivity() {
 
 
     private val TAG= LoginActivity::class.java.name
