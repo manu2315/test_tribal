@@ -1,4 +1,4 @@
-package com.example.androidtest.data.datasource
+package com.example.androidtest.data.datasource.network
 
 import android.content.Context
 import android.net.ConnectivityManager

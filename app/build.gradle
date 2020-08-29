@@ -28,6 +28,11 @@ android {
     buildFeatures {
         dataBinding true
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -82,6 +87,9 @@ dependencies {
     //Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.okhttp3:logging-interceptor:$logging_interceptor"
+
+    //Timber
+    implementation "com.jakewharton.timber:timber:$timber_version"
 
     // optional - Test helpers
     testImplementation "androidx.room:room-testing:$room_version"

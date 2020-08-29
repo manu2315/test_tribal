@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 object Retrofit {
-    val BASE_URL="https://dl.dropboxusercontent.com/s/5u21281sca8gj94/getFile.json?dl=0"
+    val FILE_URL="https://dl.dropboxusercontent.com/s/5u21281sca8gj94/"//?dl=0"    //"https://dl.dropboxusercontent.com/s/5u21281sca8gj94/getFile.json?dl=0"
 
     var okHttpClient: OkHttpClient? = null
     val logging:HttpLoggingInterceptor by lazy {
@@ -15,15 +15,11 @@ object Retrofit {
             level= HttpLoggingInterceptor.Level.BODY
         }
     }
-    private fun createInstance(baseUrl:String):Retrofit{
-        /*val logging = HttpLoggingInterceptor()
-        logging.apply {
-            level= HttpLoggingInterceptor.Level.BODY
-        }*/
+    private fun createInstance(networkConnectionInterceptor: NetworkConnectionInterceptor, baseUrl:String):Retrofit{
         if(okHttpClient==null){
             okHttpClient=OkHttpClient.Builder()
                 .addInterceptor(logging)
-                //.addNetworkInterceptor()
+                .addNetworkInterceptor(networkConnectionInterceptor)
                 .connectTimeout(3,TimeUnit.MINUTES)
                 .readTimeout(3,TimeUnit.MINUTES)
                 .writeTimeout(3,TimeUnit.MINUTES)
@@ -35,6 +31,10 @@ object Retrofit {
             .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient!!)
             .build()
+    }
+
+    fun instanceGetFile(networkConnectionInterceptor: NetworkConnectionInterceptor):FileService{
+        return createInstance(networkConnectionInterceptor, FILE_URL).create(FileService::class.java)
     }
     
 }
