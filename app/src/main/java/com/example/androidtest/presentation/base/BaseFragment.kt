@@ -79,10 +79,14 @@ open class BaseFragment :Fragment(){
     }
 
     fun showProgressBar() {
+        val animamatior= layoutInflater2!!.findViewById<LottieAnimationView>(R.id.animation_view)
+        animamatior!!.playAnimation()
         progressDialog.show()
     }
 
     fun hideProgressBar() {
+        val animamatior= layoutInflater2!!.findViewById<LottieAnimationView>(R.id.animation_view)
+        animamatior!!.pauseAnimation()
         progressDialog.dismiss()
     }
 
