@@ -3,14 +3,12 @@ package com.example.androidtest.presentation.base
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
-import android.view.View
+import android.view.*
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
+import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
 import com.airbnb.lottie.LottieAnimationView
@@ -25,10 +23,11 @@ open class BaseFragment :Fragment(){
     private var menuId: Int = 0
     private var toolbar: Toolbar? = null
     private var functionOnCreateOptionsMenu: (() -> Unit)? = null
+    var layoutInflater2:View?=null
     private val progressDialog: AlertDialog by lazy {
-
         AlertDialog.Builder(requireContext())
-            .setView(layoutInflater.inflate(R.layout.animation_loading, null))
+            //.setView(layoutInflater.inflate(R.layout.animation_loading, null))
+            .setView(layoutInflater2)
             .setCancelable(false)
             //.setTitle("Cargando")
             .create()
@@ -38,8 +37,10 @@ open class BaseFragment :Fragment(){
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setupProgressDialog()
 
+        layoutInflater2=LayoutInflater.from(context).inflate(R.layout.animation_loading,null)//layoutInflater.inflate(R.layout.animation_loading,null)
+
+        setupProgressDialog()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -23,7 +23,7 @@ buildscript {
         moshi_version="1.9.3"
         moshi_adapter_version="2.9.0"
         //Lottie animation
-        lottie_version="3.4.2"
+        lottie_version="3.0.7"
     }
     repositories {
         google()

@@ -37,7 +37,8 @@ class TasksFragment : BaseFragment() {
         binding.lifecycleOwner=this.viewLifecycleOwner
         val user= UserLogged.getUser()
         binding.welcomeText.text=getString(R.string.welcome_text, user?.name, user?.email)
-
+        //binding.animationView.playAnimation()
+        //showProgressBar()
     }
 
 
