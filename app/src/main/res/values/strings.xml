@@ -9,4 +9,5 @@
     <string name="main">Inicio</string>
     <string name="write_name">Escribe tu nombre</string>
     <string name="write_email">Escribe tu correo electronico</string>
+    <string name="abc_action_bar_up_description">Navigate up</string>
 </resources>
