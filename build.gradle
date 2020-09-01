@@ -24,6 +24,10 @@ buildscript {
         moshi_adapter_version="2.9.0"
         //Lottie animation
         lottie_version="3.0.7"
+        //Circular Image View
+        circular_image_view="3.1.0"
+        //Glide version
+        glide_version="4.11.0"
     }
     repositories {
         google()

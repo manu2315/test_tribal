@@ -6,9 +6,9 @@ object UserLogged {
 
     private var mUser: User?=null
 
-    fun createUser(name:String, email:String): User?{
+    fun createUser(name:String, email:String,photoUrl:String): User?{
         if(mUser ==null){
-            mUser = User(name, email)
+            mUser = User(name, email,photoUrl)
         }
         return mUser
     }

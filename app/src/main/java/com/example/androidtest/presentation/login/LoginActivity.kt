@@ -29,6 +29,7 @@ class LoginActivity : BaseActivity() {
     private lateinit var googleSignInClient: GoogleSignInClient
     private val EXTRA_EMAIL="email"
     private val EXTRA_NAME="name"
+    private val EXTRA_PHOTO_URL="photo_url"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding=DataBindingUtil.setContentView(this, R.layout.activity_login)
@@ -90,8 +91,10 @@ class LoginActivity : BaseActivity() {
                 flags= Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 putExtra(EXTRA_EMAIL, currentUser.email)
                 putExtra(EXTRA_NAME,currentUser.displayName)
+                putExtra(EXTRA_PHOTO_URL,currentUser.photoUrl.toString())
+
             }
-            UserLogged.createUser(currentUser.displayName!!,currentUser.email!!)
+            UserLogged.createUser(currentUser.displayName!!,currentUser.email!!,currentUser.photoUrl.toString())
             startActivity(intent)
             finish()
         }

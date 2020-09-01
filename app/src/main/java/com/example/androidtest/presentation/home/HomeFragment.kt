@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
 import com.example.androidtest.R
 import com.example.androidtest.data.objects.UserLogged
 import com.example.androidtest.databinding.FragmentHomeBinding
@@ -34,6 +35,7 @@ class HomeFragment : BaseFragment() {
         binding.lifecycleOwner=this.viewLifecycleOwner
         val user= UserLogged.getUser()
         binding.welcomeText.text=getString(R.string.welcome_text, user?.name, user?.email)
+        Glide.with(view).load(user?.photoUrl).into(binding.profileImage)
         //binding.animationView.playAnimation()
         //showProgressBar()
     }
