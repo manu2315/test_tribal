@@ -8,9 +8,9 @@
 
     <fragment
         android:id="@+id/tasksFragment"
-        android:name="com.example.androidtest.presentation.tasks.TasksFragment"
+        android:name="com.example.androidtest.presentation.home.HomeFragment"
         android:label="fragment_tasks"
-        tools:layout="@layout/fragment_tasks"
+        tools:layout="@layout/fragment_home"
         app:popUpToInclusive="true"
         app:popUpTo="@id/tasksFragment">
         <action
@@ -22,9 +22,9 @@
     </fragment>
     <fragment
         android:id="@+id/collaboratorFragment"
-        android:name="com.example.androidtest.presentation.collaborator.CollaboratorFragment"
+        android:name="com.example.androidtest.presentation.photos.PhotosFragment"
         android:label="fragment_collaborator"
-        tools:layout="@layout/fragment_collaborator" />
+        tools:layout="@layout/fragment_photos" />
     <fragment
         android:id="@+id/addCollaboratorFragment"
         android:name="com.example.androidtest.presentation.addCollaborator.AddCollaboratorFragment"
