@@ -4,24 +4,24 @@
         android:id="@+id/page_0"
         android:enabled="true"
         android:iconTint="@color/colorPrimaryColor"
-        android:icon="@drawable/outline_home_24"
+        android:icon="@drawable/outline_home_black_36"
         android:title=""/>
     <item
         android:id="@+id/page_1"
         android:enabled="true"
         android:iconTint="@color/colorPrimaryColor"
-        android:icon="@drawable/outline_collections_24"
+        android:icon="@drawable/outline_collections_black_36"
         android:title=""/>
     <item
         android:id="@+id/page_2"
         android:enabled="true"
         android:iconTint="@color/colorPrimaryColor"
-        android:icon="@drawable/outline_explore_24"
+        android:icon="@drawable/outline_explore_black_36"
         android:title=""/>
     <item
         android:id="@+id/page_3"
         android:enabled="true"
         android:iconTint="@color/colorPrimaryColor"
-        android:icon="@drawable/outline_settings_24"
+        android:icon="@drawable/outline_settings_black_36"
         android:title=""/>
 </menu>
