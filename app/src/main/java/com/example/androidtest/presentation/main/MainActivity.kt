@@ -19,8 +19,8 @@ class MainActivity : BaseActivity() {
         supportActionBar?.hide()
         //mBinding.bottomNav.setupWithNavController(Navigation.findNavController(this,R.id.nav_host_fragment))
         //val navigationItemSelectedListener: BottomNavigationView.OnNavigationItemSelectedListener =
-        //setUpNavigation()
-        //setupBottomNavigationView()
+        setUpNavigation()
+        setupBottomNavigationView()
 
 
     }
@@ -29,7 +29,7 @@ class MainActivity : BaseActivity() {
         super.onStart()
 
     }
-/*
+
     private fun moveToHome(){
         if (Navigation.findNavController(this,mBinding.navHostFragment.id).currentDestination?.id != R.id.tasksFragment) {
             Navigation.findNavController(this,mBinding.navHostFragment.id).popBackStack()
@@ -84,7 +84,7 @@ class MainActivity : BaseActivity() {
             navHostFragment!!.navController
         )
     }
-*/
+
 
 
 }

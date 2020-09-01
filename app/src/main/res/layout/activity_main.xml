@@ -8,115 +8,59 @@
 
     </data>
     <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/lt_content"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_gravity="bottom">
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryTextColor"
+        android:fitsSystemWindows="false">
+
+
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/nav_host_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottom_navigation"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/nav_graph" />
+
+        <!--app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:clickable="false"
+            app:fabAlignmentMode="center" />
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom">
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottom_nav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                app:menu="@menu/bottom_navigation_menu" />
+
+
+        </FrameLayout>
+
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
+            style="@style/AppShapeAppearance.SmallComponent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:clickable="true"
-            android:focusable="true"
-            android:backgroundTint="@color/colorPrimaryDark"
             android:src="@drawable/ic_add"
+            android:backgroundTint="@color/colorPrimaryDark"
             app:tint="@color/colorPrimaryTextColor"
-            app:layout_anchor="@id/bottom_nav" />
+            app:layout_anchor="@id/bottom_bar" />
 
-        <com.google.android.material.bottomappbar.BottomAppBar
-            android:id="@+id/bottom_nav"
-            android:layout_width="match_parent"
-            android:layout_height="58dp"
-            android:layout_gravity="bottom"
-            style="@style/AppShapeAppearance.SmallComponent"
-            android:backgroundTint="@color/colorPrimaryTextColor">
-           <!-- android:backgroundTint="@color/colorPrimaryDark"-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/page_0"
-                    style="?android:attr/borderlessButtonStyle"
-                    android:paddingTop="10dp"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="?android:attr/selectableItemBackground"
-                    android:drawableTop="@drawable/outline_home_black_36"
-                    android:drawableTint="@color/colorPrimaryDark"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:textColor="#FFFFFF">
-
-                </TextView>
-
-                <TextView
-                    android:id="@+id/page_1"
-                    style="?android:attr/borderlessButtonStyle"
-                    android:paddingTop="10dp"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="?android:attr/selectableItemBackground"
-                    android:drawableTop="@drawable/outline_collections_black_36"
-                    android:drawableTint="@color/colorPrimaryDark"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:textColor="#FFFFFF">
-
-                </TextView>
-
-                <TextView
-                    android:id="@+id/page_2"
-                    style="?android:attr/borderlessButtonStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="?android:attr/selectableItemBackground"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:textColor="#FFFFFF"
-                    android:visibility="invisible">
-
-                </TextView>
-
-                <TextView
-                    android:id="@+id/page_3"
-                    style="?android:attr/borderlessButtonStyle"
-                    android:paddingTop="10dp"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="?android:attr/selectableItemBackground"
-                    android:drawableTop="@drawable/outline_explore_black_36"
-                    android:drawableTint="@color/colorPrimaryDark"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:textColor="#FFFFFF">
-
-                </TextView>
-
-                <TextView
-                    android:id="@+id/page_4"
-                    style="?android:attr/borderlessButtonStyle"
-                    android:paddingTop="10dp"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="?android:attr/selectableItemBackground"
-                    android:drawableTop="@drawable/outline_settings_black_36"
-                    android:drawableTint="@color/colorPrimaryDark"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:textColor="#FFFFFF">
-
-                </TextView>
-
-            </LinearLayout>
-
-        </com.google.android.material.bottomappbar.BottomAppBar>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
