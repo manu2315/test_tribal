@@ -19,6 +19,7 @@ import com.unsplash.pickerandroid.photopicker.presentation.UnsplashPickerActivit
 class MainActivity : BaseActivity() {
     private lateinit var mBinding:ActivityMainBinding
     private val REQUEST_CODE=1
+    var mPhotos: ArrayList<UnsplashPhoto>?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding=DataBindingUtil.setContentView(this, R.layout.activity_main)
@@ -47,6 +48,7 @@ class MainActivity : BaseActivity() {
         if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE) {
             // getting the photos
             val photos: ArrayList<UnsplashPhoto>? = data?.getParcelableArrayListExtra(UnsplashPickerActivity.EXTRA_PHOTOS)
+            mPhotos = photos
             // showing the preview
             //mAdapter.setListOfPhotos(photos)
             // telling the user how many have been selected
