@@ -18,6 +18,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
+import com.unsplash.pickerandroid.photopicker.presentation.UnsplashPickerActivity
 
 class LoginActivity : BaseActivity() {
 
@@ -37,6 +38,8 @@ class LoginActivity : BaseActivity() {
         supportActionBar?.hide()
         setupGoogleSingIn()
         click()
+
+
     }
 
     override fun onStart() {

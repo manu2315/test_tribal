@@ -2,6 +2,7 @@ package com.example.androidtest
 
 import android.app.Application
 import com.example.androidtest.di.appModule
+import com.unsplash.pickerandroid.photopicker.UnsplashPhotoPicker
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -25,6 +26,15 @@ class MyApplication:Application() {
         if (BuildConfig.DEBUG) {
             Timber.plant(DebugTree())
         }
+
+        // initializing the picker library
+        UnsplashPhotoPicker.init(
+            this,
+            "i-8cqG0g6e4w0IpBRb_wnp5ogpO-9WDhmjFwjn_QcFA",
+            "ERMxXiE4umn4AUmRUyxI77CtKc_BNV8deGArxZKkutE"
+            /* optional page size (number of photos per page) */
+        )
+        /* .setLoggingEnabled(true) // if you want to see the http requests */
     }
 
 

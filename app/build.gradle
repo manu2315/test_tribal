@@ -84,8 +84,8 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:$gson_converter"
 
     //Moshi
-    implementation("com.squareup.moshi:moshi-kotlin:$moshi_version")
-    implementation "com.squareup.retrofit2:converter-moshi:$moshi_adapter_version"
+    //implementation("com.squareup.moshi:moshi-kotlin:$moshi_version")
+    //implementation "com.squareup.retrofit2:converter-moshi:$moshi_adapter_version"
 
     //Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
@@ -103,6 +103,9 @@ dependencies {
     //Glide
     implementation "com.github.bumptech.glide:glide:$glide_version"
     annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
+
+    //Unsplash
+    implementation 'com.unsplash.pickerandroid:photopicker:1.0.0'
 
     // optional - Test helpers
     testImplementation "androidx.room:room-testing:$room_version"
