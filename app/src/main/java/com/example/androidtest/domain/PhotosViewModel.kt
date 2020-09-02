@@ -23,6 +23,13 @@ class PhotosViewModel(
     private val _photoListSaved= MutableLiveData<List<UnsplashPhoto_Entity>>()
     val photoListSaved:LiveData<List<UnsplashPhoto_Entity>> = _photoListSaved
 
+    private val _currentEntity= MutableLiveData<UnsplashPhoto_Entity>()
+    val currentEntity:LiveData<UnsplashPhoto_Entity> = _currentEntity
+
+    fun setCurrentEntity(current:UnsplashPhoto_Entity){
+        _currentEntity.value=current
+    }
+
     fun setUnsplashPhotoList(unsplashList:ArrayList<UnsplashPhoto>){
         _photoList.postValue(unsplashList)
     }

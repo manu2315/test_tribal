@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.bumptech.glide.Glide
 import com.example.androidtest.R
 import com.example.androidtest.data.datasource.database.entities.UnsplashPhoto_Entity
 import com.example.androidtest.databinding.FragmentPhotosBinding
@@ -15,6 +16,7 @@ import com.example.androidtest.interfaces.IPhotoAdapterV2
 import com.example.androidtest.presentation.adapters.PhotoAdapter
 import com.example.androidtest.presentation.adapters.PhotoAdapterV2
 import com.example.androidtest.presentation.base.BaseFragment
+import com.squareup.picasso.Picasso
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -42,11 +44,22 @@ class PhotosFragment : BaseFragment(),IPhotoAdapterV2 {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.lifecycleOwner=this.viewLifecycleOwner
+
         observerFavorites()
         setupRecyclerView()
         getFavoritesPhotos()
+        setupCurrentEntity()
     }
 
+    private fun setupCurrentEntity(){
+        if(viewModel.currentEntity.value !=null){
+            binding.current=viewModel.currentEntity.value
+            Picasso.get().load(viewModel.currentEntity.value!!.user.profile_image.medium).into(binding.profileImage)
+        }else{
+            binding.favoritesDescription.text=getString(R.string.no_description)
+        }
+
+    }
     private fun setupRecyclerView(){
         binding.favoritesRecyclerView
         binding.favoritesRecyclerView.setHasFixedSize(true)

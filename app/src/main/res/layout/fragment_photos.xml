@@ -5,7 +5,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
     <data>
-
+        <variable
+            name="current"
+            type="com.example.androidtest.data.datasource.database.entities.UnsplashPhoto_Entity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,20 +20,41 @@
             android:layout_height="wrap_content"
             style="@style/TextView_User_Name"
             android:paddingStart="20dp"
+            android:text="@string/favorite"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:text="Favorites"
+            tools:text="@string/favorite"
             />
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/favorites_description"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             style="@style/TextView_Description"
+            android:text="@{current.user.bio}"
             android:paddingStart="20dp"
             android:paddingBottom="20dp"
+            android:singleLine="true"
+            android:maxLines="1"
             app:layout_constraintTop_toBottomOf="@id/favorites_title"
             app:layout_constraintStart_toStartOf="parent"
-            tools:text="Angelica Mathews"
+            app:layout_constraintBottom_toTopOf="@+id/favorites_recycler_view"
+            app:layout_constraintEnd_toStartOf="@+id/profile_image"
+            app:layout_constraintHorizontal_bias="0.0"
+            tools:text="@string/no_description"
+            />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="20dp"
+            tools:src="@drawable/ic_add"
+            tools:background="@color/colorPrimary"
+            app:civ_border_width="6dp"
+            android:layout_marginStart="30dp"
+            app:civ_border_color="@color/colorPrimaryTextColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/favorites_recycler_view"
             />
 
         <androidx.recyclerview.widget.RecyclerView

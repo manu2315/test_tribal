@@ -62,6 +62,7 @@ class HomeFragment : BaseFragment() {
             binding.data.item=j[0]
             binding.data.utils=Utils
             entity=j[0]
+            viewModel.setCurrentEntity(entity!!)
 
             /*fun jobInsertSelectedFromActivity()=viewModel.insertByList(j)
             GlobalScope.launch(Dispatchers.Main) {
