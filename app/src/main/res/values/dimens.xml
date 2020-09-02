@@ -2,4 +2,5 @@
 <resources>
     <dimen name="bton_width_home">120dp</dimen>
     <dimen name="width_icon_social_media">30dp</dimen>
+    <dimen name="margin_bottom_main_activity">70dp</dimen>
 </resources>

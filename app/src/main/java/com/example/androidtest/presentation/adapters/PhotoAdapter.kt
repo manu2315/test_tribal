@@ -29,8 +29,8 @@ class PhotoAdapter constructor(context: Context) : RecyclerView.Adapter<PhotoAda
         // image background
         holder.itemView.setBackgroundColor(Color.parseColor(photo.color))
         // loading the photo
-        Glide.with(holder.itemView).load(photo.urls.full).into(holder.imageView)
         //Picasso.get().load(photo.urls.full).into(holder.imageView)
+        Picasso.get().load(photo.urls.small).into(holder.imageView)
     }
 
     override fun getItemCount(): Int {

@@ -17,30 +17,58 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <ImageView
                 android:id="@+id/item_photo_favorite"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_width="0dp"
+                android:adjustViewBounds="true"
                 android:contentDescription="@string/photo"
-                tools:src="@mipmap/ic_launcher"
                 android:scaleType="centerCrop"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintBottom_toTopOf="@+id/tv_delete_photo"
+                app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                android:adjustViewBounds="true"/>
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@mipmap/ic_launcher"
+                app:layout_constraintVertical_bias="0.0"
+                />
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_delete_photo"
-                android:layout_width="match_parent"
+                android:layout_width="56dp"
                 android:layout_height="56dp"
                 android:background="@color/colorPrimaryTextColor"
                 android:drawableEnd="@drawable/ic_delete"
                 android:paddingEnd="16dp"
+                app:layout_constraintTop_toBottomOf="@id/edit_text_detail"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-
                 />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/edit_text_user_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Michel Jordan"
+                android:text="@{item.user.name}"
+                style="@style/TextView_Title"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/item_photo_favorite"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/edit_text_detail"
+                style="@style/TextView_Description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{item.user.bio}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/tv_delete_photo"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edit_text_user_info"
+                app:layout_constraintVertical_bias="0.0"
+                tools:text="He is the GOAT" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 

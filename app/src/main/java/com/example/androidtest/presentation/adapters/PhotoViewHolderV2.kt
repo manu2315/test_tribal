@@ -7,6 +7,7 @@ import com.bumptech.glide.Glide
 import com.example.androidtest.data.datasource.database.entities.UnsplashPhoto_Entity
 import com.example.androidtest.databinding.RowFavoritePictureBinding
 import com.example.androidtest.interfaces.IPhotoAdapterV2
+import com.squareup.picasso.Picasso
 import timber.log.Timber
 
 class PhotoViewHolderV2 (val binding:RowFavoritePictureBinding):RecyclerView.ViewHolder(binding.root){
@@ -17,7 +18,8 @@ class PhotoViewHolderV2 (val binding:RowFavoritePictureBinding):RecyclerView.Vie
     ){
         binding.item=item
         Timber.e("photo photoViewHolder")
-        Glide.with(binding.root).load(item.urls.small).into(binding.itemPhotoFavorite)
+        //Picasso.get().load(item.urls.full).into(binding.itemPhotoFavorite)
+        Picasso.get().load(item.urls.small).into(binding.itemPhotoFavorite)
         binding.tvDeletePhoto.setOnClickListener {
             iPhotoAdapterV2.removeData(position,item)
         }
