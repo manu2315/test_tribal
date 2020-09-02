@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.bumptech.glide.Glide
+import com.example.androidtest.data.datasource.database.entities.UnsplashPhoto_Entity
 import com.example.androidtest.data.objects.UserLogged
 import com.example.androidtest.databinding.FragmentHomeBinding
 import com.example.androidtest.domain.PhotosViewModel
@@ -31,6 +32,7 @@ class HomeFragment : BaseFragment() {
 
     private lateinit var mAdapter: PhotoAdapter
     val viewModel: PhotosViewModel by sharedViewModel()
+    private var entity:UnsplashPhoto_Entity?=null
     private val binding:FragmentHomeBinding by lazy {
         FragmentHomeBinding
             .inflate(LayoutInflater.from(context), null, false)
@@ -49,7 +51,7 @@ class HomeFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.lifecycleOwner=this.viewLifecycleOwner
         //binding.animationView.playAnimation()
-        //showProgressBar()
+
 
         setupRecyclerView()
 
@@ -59,7 +61,7 @@ class HomeFragment : BaseFragment() {
             Glide.with(view).load(j[0].user.profile_image.medium).into(binding.data.profileImage)
             binding.data.item=j[0]
             binding.data.utils=Utils
-
+            entity=j[0]
 
             /*fun jobInsertSelectedFromActivity()=viewModel.insertByList(j)
             GlobalScope.launch(Dispatchers.Main) {
@@ -67,6 +69,15 @@ class HomeFragment : BaseFragment() {
                 viewModel.getAll()
             }*/
         })
+        fun jobInsertEntity()=viewModel.insertAll(entity!!)
+        binding.data.followBtn.setOnClickListener {
+            GlobalScope.launch(Dispatchers.Main) {
+                showProgressBar()
+                jobInsertEntity().join()
+                hideProgressBar()
+                Toast.makeText(requireContext(), "Image saved by author ${entity?.user?.name}", Toast.LENGTH_SHORT).show()
+            }
+        }
 
     }
 

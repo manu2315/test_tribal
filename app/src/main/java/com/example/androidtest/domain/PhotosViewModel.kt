@@ -26,7 +26,7 @@ class PhotosViewModel(
 
     fun insertAll(unsplashPhoto:UnsplashPhoto_Entity) = viewModelScope.launch(dispatcher) {
        val x= unsplashRepository.insertAll(unsplashPhoto)
-        Timber.e("room insertAll unsplashPhoto inserted ${x}")
+        Timber.e("room inserted single image unsplashPhoto inserted ${x}")
     }
 
     fun insertByList( unsplashPhoto: List<UnsplashPhoto_Entity>)= viewModelScope.launch(dispatcher) {

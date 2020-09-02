@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.androidtest.R
 import com.example.androidtest.data.models.UnsplashPhoto
 import com.squareup.picasso.Picasso
@@ -28,8 +29,8 @@ class PhotoAdapter constructor(context: Context) : RecyclerView.Adapter<PhotoAda
         // image background
         holder.itemView.setBackgroundColor(Color.parseColor(photo.color))
         // loading the photo
-        Picasso.get().load(photo.urls.small)
-            .into(holder.imageView)
+        Glide.with(holder.itemView).load(photo.urls.full).into(holder.imageView)
+        //Picasso.get().load(photo.urls.full).into(holder.imageView)
     }
 
     override fun getItemCount(): Int {
