@@ -21,8 +21,23 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            // Enables code shrinking, obfuscation, and optimization for only
+            // your project's release build type.
+            minifyEnabled true
+
+            // Enables resource shrinking, which is performed by the
+            // Android Gradle plugin.
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    flavorDimensions "1.0.0"
+    productFlavors {
+        flavor1 {
+            proguardFile 'flavor1-rules.pro'
+        }
+        flavor2 {
+            proguardFile 'flavor2-rules.pro'
         }
     }
     buildFeatures {
