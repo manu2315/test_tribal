@@ -19,5 +19,6 @@
     <string name="favorite">Favorites</string>
     <string name="no_description">No description</string>
     <string name="search_title">Search</string>
+    <string name="location">Location</string>
 
 </resources>

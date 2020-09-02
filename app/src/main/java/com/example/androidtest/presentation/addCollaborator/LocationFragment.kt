@@ -6,13 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.androidtest.R
-import com.example.androidtest.databinding.FragmentAddCollaboratorBinding
+import com.example.androidtest.databinding.FragmentLocationBinding
 
 
-class AddCollaboratorFragment : Fragment() {
+class LocationFragment : Fragment() {
 
-    private val binding:FragmentAddCollaboratorBinding by lazy {
-        FragmentAddCollaboratorBinding
+    private val binding:FragmentLocationBinding by lazy {
+        FragmentLocationBinding
             .inflate(LayoutInflater.from(context),null,false)
             //.apply {  }
     }
