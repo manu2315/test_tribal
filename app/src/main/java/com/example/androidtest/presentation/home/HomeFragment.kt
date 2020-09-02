@@ -17,6 +17,9 @@ import com.example.androidtest.presentation.utils.convertToKotlinDataClass
 import com.example.androidtest.presentation.utils.convertToRoomEntity
 import com.example.androidtest.presentation.utils.getUnsplashPhotoList
 import kotlinx.android.synthetic.main.user_data.view.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
@@ -58,7 +61,11 @@ class HomeFragment : BaseFragment() {
         viewModel.photoList.observe(viewLifecycleOwner, Observer {
             mAdapter.setListOfPhotos(it.convertToKotlinDataClass())
             val j=it.convertToRoomEntity()
-            Timber.e("json = ${j}")
+            fun jobInsertSelectedFromActivity()=viewModel.insertByList(j)
+            GlobalScope.launch(Dispatchers.Main) {
+                jobInsertSelectedFromActivity().join()
+                viewModel.getAll()
+            }
         })
 
     }

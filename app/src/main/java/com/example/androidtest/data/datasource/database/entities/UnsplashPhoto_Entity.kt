@@ -1,10 +1,7 @@
 package com.example.androidtest.data.datasource.database.entities
 
 import android.os.Parcelable
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-import androidx.room.TypeConverter
+import androidx.room.*
 import com.example.androidtest.data.utils.ConverterUnsplashLinks
 import com.example.androidtest.data.utils.ConverterUnsplashUrls
 import com.example.androidtest.data.utils.ConverterUnsplashUser
@@ -23,9 +20,12 @@ class UnsplashPhoto_Entity (
     @ColumnInfo(name = "color")val color: String? = "#000000",
     @ColumnInfo(name = "likes")val likes: Int,
     @ColumnInfo(name = "description")val description: String?,
-    @ColumnInfo(name = "urls")val urls: String,
-    @ColumnInfo(name = "links")val links: String,
-    @ColumnInfo(name = "user")val user: String
+    @TypeConverters(ConverterUnsplashUrls::class)
+    @ColumnInfo(name = "urls")val urls: UnsplashUrls,
+    @TypeConverters(ConverterUnsplashLinks::class)
+    @ColumnInfo(name = "links")val links: UnsplashLinks,
+    @TypeConverters(ConverterUnsplashUser::class)
+    @ColumnInfo(name = "user")val user: UnsplashUser
 ) : Parcelable
 
 /*

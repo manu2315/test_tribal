@@ -5,11 +5,11 @@ import com.example.androidtest.data.models.FileApi
 import com.example.androidtest.data.utils.Resource
 
 interface UnsplashRepository {
-    fun insertAll(vararg unsplashPhoto: UnsplashPhoto_Entity)
-    fun insertByList( unsplashPhoto: List<UnsplashPhoto_Entity>)
-    fun delete(unsplashPhoto: UnsplashPhoto_Entity)
-
+    fun insertAll(unsplashPhoto: UnsplashPhoto_Entity):Long
+    fun insertByList( unsplashPhoto: List<UnsplashPhoto_Entity>):List<Long>
+    fun delete(unsplashPhoto: UnsplashPhoto_Entity):Int
+    fun update(unsplashPhoto: UnsplashPhoto_Entity)
     suspend fun getAll(): List<UnsplashPhoto_Entity>
-    suspend fun loadAllByIds(userIds: IntArray): List<UnsplashPhoto_Entity>
-    suspend fun loadById(id: Int): UnsplashPhoto_Entity
+    suspend fun findListByIds(userIds: IntArray): List<UnsplashPhoto_Entity>
+    suspend fun findById(id: Int): UnsplashPhoto_Entity
 }

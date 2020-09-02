@@ -8,29 +8,32 @@ import org.koin.core.KoinComponent
 class UnsplashRepositoryImpl(
     val unsplashDao: UnsplashDao
 ):UnsplashRepository, KoinComponent {
-    override fun insertAll(vararg unsplashPhoto: UnsplashPhoto_Entity) {
-        unsplashDao.insertAll(*unsplashPhoto)
+    override fun insertAll( unsplashPhoto: UnsplashPhoto_Entity): Long {
+        return  unsplashDao.insertAll(unsplashPhoto)
     }
 
-    override fun insertByList(unsplashPhoto: List<UnsplashPhoto_Entity>) {
-        unsplashDao.insertByList(unsplashPhoto)
+    override fun insertByList(unsplashPhoto: List<UnsplashPhoto_Entity>): List<Long> {
+        return  unsplashDao.insertByList(unsplashPhoto)
     }
 
-    override fun delete(unsplashPhoto: UnsplashPhoto_Entity) {
-        unsplashDao.delete(unsplashPhoto)
+    override fun delete(unsplashPhoto: UnsplashPhoto_Entity): Int {
+       return unsplashDao.delete(unsplashPhoto)
+    }
+
+    override fun update(unsplashPhoto: UnsplashPhoto_Entity) {
+        unsplashDao.update(unsplashPhoto)
     }
 
     override suspend fun getAll(): List<UnsplashPhoto_Entity> {
        return unsplashDao.getAll()
     }
 
-    override suspend fun loadAllByIds(userIds: IntArray): List<UnsplashPhoto_Entity> {
-        return unsplashDao.loadAllByIds(userIds)
+    override suspend fun findListByIds(userIds: IntArray): List<UnsplashPhoto_Entity> {
+        return unsplashDao.findListByIds(userIds)
     }
 
-    override suspend fun loadById(id: Int): UnsplashPhoto_Entity {
-        return unsplashDao.loadById(id)
+    override suspend fun findById(id: Int): UnsplashPhoto_Entity {
+        return unsplashDao.findById(id)
     }
-
 
 }
