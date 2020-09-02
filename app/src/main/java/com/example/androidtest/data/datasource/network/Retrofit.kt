@@ -9,7 +9,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 
 object Retrofit {
-    val FILE_URL="https://dl.dropboxusercontent.com/s/5u21281sca8gj94/"//?dl=0"    //"https://dl.dropboxusercontent.com/s/5u21281sca8gj94/getFile.json?dl=0"
+    //val FILE_URL="https://dl.dropboxusercontent.com/s/5u21281sca8gj94/"//?dl=0"    //"https://dl.dropboxusercontent.com/s/5u21281sca8gj94/getFile.json?dl=0"
 
     var okHttpClient: OkHttpClient? = null
     val logging:HttpLoggingInterceptor by lazy {
@@ -35,8 +35,6 @@ object Retrofit {
             .build()
     }
 
-    fun instanceGetFile(networkConnectionInterceptor: NetworkConnectionInterceptor):FileService{
-        return createInstance(networkConnectionInterceptor, FILE_URL).create(FileService::class.java)
-    }
+
     
 }

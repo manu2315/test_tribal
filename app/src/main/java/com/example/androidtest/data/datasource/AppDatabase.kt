@@ -9,7 +9,7 @@ import com.example.androidtest.data.datasource.database.entities.UnsplashPhoto_E
 
 @Database(entities = arrayOf(UnsplashPhoto_Entity::class), version = 1)
 abstract class AppDatabase :RoomDatabase(){
-    abstract fun collaboratorDao():UnsplashDao
+    abstract fun unsplashDao():UnsplashDao
 
     companion object {
 

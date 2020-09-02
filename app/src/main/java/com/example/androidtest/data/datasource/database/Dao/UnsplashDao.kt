@@ -1,29 +1,26 @@
 package com.example.androidtest.data.datasource.database.Dao
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import com.example.androidtest.data.datasource.database.entities.UnsplashPhoto_Entity
 
 @Dao
 interface UnsplashDao {
     @Query("SELECT * FROM unsplash_photo")
-    fun getAll(): List<UnsplashPhoto_Entity>
+    suspend fun getAll(): List<UnsplashPhoto_Entity>
 
     @Query("SELECT * FROM unsplash_photo WHERE id IN (:userIds)")
-    fun loadAllByIds(userIds: IntArray): List<UnsplashPhoto_Entity>
+    suspend fun loadAllByIds(userIds: IntArray): List<UnsplashPhoto_Entity>
 
     @Query("SELECT * FROM unsplash_photo WHERE id IN (:id)")
-    fun loadById(id: Int): UnsplashPhoto_Entity
+    suspend fun loadById(id: Int): UnsplashPhoto_Entity
 
     /*@Query("SELECT * FROM unsplash_photo WHERE name LIKE :name")
     fun findByName(name: String): UnsplashPhotoEntity*/
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(vararg unsplashPhoto: UnsplashPhoto_Entity)
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertByList( unsplashPhoto: List<UnsplashPhoto_Entity>)
 
     @Delete

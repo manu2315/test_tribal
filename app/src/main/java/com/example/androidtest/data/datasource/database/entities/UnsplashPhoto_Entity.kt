@@ -24,7 +24,6 @@ class UnsplashPhoto_Entity (
     @ColumnInfo(name = "likes")val likes: Int,
     @ColumnInfo(name = "description")val description: String?,
     @ColumnInfo(name = "urls")val urls: String,
-
     @ColumnInfo(name = "links")val links: String,
     @ColumnInfo(name = "user")val user: String
 ) : Parcelable

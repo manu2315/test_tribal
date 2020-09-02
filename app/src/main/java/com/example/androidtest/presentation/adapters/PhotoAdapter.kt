@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidtest.R
+import com.example.androidtest.data.models.UnsplashPhoto
 import com.squareup.picasso.Picasso
-import com.unsplash.pickerandroid.photopicker.data.UnsplashPhoto
 import kotlinx.android.synthetic.main.item_photo.view.*
 
 class PhotoAdapter constructor(context: Context) : RecyclerView.Adapter<PhotoAdapter.PhotoViewHolder>() {
