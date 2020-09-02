@@ -4,12 +4,12 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.androidtest.data.datasource.database.Dao.CollaboratorDao
-import com.example.androidtest.data.datasource.database.entities.CollaboratorEntity
+import com.example.androidtest.data.datasource.database.Dao.UnsplashDao
+import com.example.androidtest.data.datasource.database.entities.UnsplashPhoto_Entity
 
-@Database(entities = arrayOf(CollaboratorEntity::class), version = 1)
+@Database(entities = arrayOf(UnsplashPhoto_Entity::class), version = 1)
 abstract class AppDatabase :RoomDatabase(){
-    abstract fun collaboratorDao():CollaboratorDao
+    abstract fun collaboratorDao():UnsplashDao
 
     companion object {
 

@@ -31,7 +31,8 @@ class MyApplication:Application() {
         UnsplashPhotoPicker.init(
             this,
             "i-8cqG0g6e4w0IpBRb_wnp5ogpO-9WDhmjFwjn_QcFA",
-            "ERMxXiE4umn4AUmRUyxI77CtKc_BNV8deGArxZKkutE"
+            "ERMxXiE4umn4AUmRUyxI77CtKc_BNV8deGArxZKkutE",
+            10
             /* optional page size (number of photos per page) */
         )
         /* .setLoggingEnabled(true) // if you want to see the http requests */
