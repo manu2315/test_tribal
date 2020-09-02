@@ -55,9 +55,10 @@ class PhotosFragment : BaseFragment(),IPhotoAdapterV2 {
         if(viewModel.currentEntity.value !=null){
             binding.current=viewModel.currentEntity.value
             Picasso.get().load(viewModel.currentEntity.value!!.user.profile_image.medium).into(binding.profileImage)
-        }else{
-            binding.favoritesDescription.text=getString(R.string.no_description)
         }
+        /*else{
+            binding.favoritesDescription.text=getString(R.string.no_description)
+        }*/
 
     }
     private fun setupRecyclerView(){
