@@ -43,8 +43,10 @@
             <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:id="@+id/bottom_nav"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:clickable="false"
+                app:itemIconTint="@drawable/tab_color"
+                app:itemTextColor="@drawable/tab_color"
                 app:menu="@menu/bottom_navigation_menu" />
 
 
@@ -57,7 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_add"
-            android:backgroundTint="@color/colorPrimaryDark"
+            app:backgroundTint="@android:color/holo_blue_dark"
             app:tint="@color/colorPrimaryTextColor"
             app:layout_anchor="@id/bottom_bar" />
 

@@ -10,3 +10,28 @@
     <color name="colorSecondaryTextColor">#000000</color>
 </resources>
 
+
+<!-- color second
+<color name="colorPrimaryColor">#fafafa</color>
+<color name="colorPrimaryLightColor">#ffffff</color>
+<color name="colorPrimaryDarkColor">#c7c7c7</color>
+<color name="colorSecondaryColor">#2196f3</color>
+<color name="colorSecondaryLightColor">#6ec6ff</color>
+<color name="colorSecondaryDarkColor">#0069c0</color>
+<color name="colorPrimaryTextColor">#212121</color>
+<color name="colorSecondaryTextColor">#fafafa</color>
+
+-->
+
+
+<!--  Color original
+<color name="colorPrimaryColor">#616161</color>
+<color name="colorPrimaryLightColor">#8e8e8e</color>
+<color name="colorPrimaryDarkColor">#373737</color>
+<color name="colorSecondaryColor">#d84315</color>
+<color name="colorSecondaryLightColor">#ff7543</color>
+<color name="colorSecondaryDarkColor">#9f0000</color>
+<color name="colorPrimaryTextColor">#ffffff</color>
+<color name="colorSecondaryTextColor">#000000</color>
+
+-->

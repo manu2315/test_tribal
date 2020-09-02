@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/page_0"
         android:enabled="true"
-        android:iconTint="@color/colorPrimaryColor"
+        android:iconTint="@color/colorPrimaryDark"
         android:icon="@drawable/outline_home_black_36"
         android:title=""/>
     <item
         android:id="@+id/page_1"
         android:enabled="true"
-        android:iconTint="@color/colorPrimaryColor"
+        android:iconTint="@color/colorPrimaryDark"
         android:icon="@drawable/outline_collections_black_36"
         android:title=""/>
     <item
         android:id="@+id/page_2"
         android:enabled="true"
-        android:iconTint="@color/colorPrimaryColor"
+        android:iconTint="@color/colorPrimaryDark"
         android:icon="@drawable/outline_explore_black_36"
         android:title=""/>
     <item
         android:id="@+id/page_3"
         android:enabled="true"
-        android:iconTint="@color/colorPrimaryColor"
+        android:iconTint="@color/colorPrimaryDark"
         android:icon="@drawable/outline_settings_black_36"
         android:title=""/>
 </menu>

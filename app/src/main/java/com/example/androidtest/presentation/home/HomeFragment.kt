@@ -10,6 +10,7 @@ import com.example.androidtest.data.objects.UserLogged
 import com.example.androidtest.databinding.FragmentHomeBinding
 import com.example.androidtest.domain.PhotosViewModel
 import com.example.androidtest.presentation.base.BaseFragment
+import kotlinx.android.synthetic.main.user_data.view.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -34,10 +35,14 @@ class HomeFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.lifecycleOwner=this.viewLifecycleOwner
         val user= UserLogged.getUser()
-        binding.welcomeText.text=getString(R.string.welcome_text, user?.name, user?.email)
-        Glide.with(view).load(user?.photoUrl).into(binding.profileImage)
+        //binding.welcomeText.text=getString(R.string.welcome_text, user?.name, user?.email)
+        //Glide.with(view).load(user?.photoUrl).into(binding.profileImage)
         //binding.animationView.playAnimation()
         //showProgressBar()
+
+        Glide.with(view).load(user?.photoUrl).into(binding.data.profile_image)
+        binding.data.name_user.text = user?.name
+        binding.data.description.text = user?.email
     }
 
 
