@@ -1,19 +1,16 @@
 package com.example.androidtest.presentation.photos
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.EditText
+import androidx.core.content.ContextCompat.getColor
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.bumptech.glide.Glide
 import com.example.androidtest.R
 import com.example.androidtest.data.datasource.database.entities.UnsplashPhoto_Entity
 import com.example.androidtest.databinding.FragmentPhotosBinding
 import com.example.androidtest.domain.PhotosViewModel
 import com.example.androidtest.interfaces.IPhotoAdapterV2
-import com.example.androidtest.presentation.adapters.PhotoAdapter
 import com.example.androidtest.presentation.adapters.PhotoAdapterV2
 import com.example.androidtest.presentation.base.BaseFragment
 import com.squareup.picasso.Picasso
@@ -28,7 +25,7 @@ class PhotosFragment : BaseFragment(),IPhotoAdapterV2 {
     val viewModel: PhotosViewModel by sharedViewModel()
     private val binding:FragmentPhotosBinding by lazy {
         FragmentPhotosBinding
-            .inflate(LayoutInflater.from(context),null,false)
+            .inflate(LayoutInflater.from(context), null, false)
             //.apply {  }
     }
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,17 +41,32 @@ class PhotosFragment : BaseFragment(),IPhotoAdapterV2 {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.lifecycleOwner=this.viewLifecycleOwner
-
+        //setupToolbar(binding.toolbar,getString(R.string.favorite),R.menu.menu_search_picture)
+        setupSearchWidget()
         observerFavorites()
         setupRecyclerView()
         getFavoritesPhotos()
         setupCurrentEntity()
     }
 
+    private fun setupSearchWidget(){
+        val searchView = binding.search
+        val searchEditText =
+            searchView.findViewById<View>(androidx.appcompat.R.id.search_src_text) as EditText
+        searchEditText.setTextColor(getColor(requireContext(),R.color.colorPrimaryLightColor))
+        searchEditText.setHintTextColor(getColor(requireContext(),R.color.colorSecondaryTextColor))
+
+    }
+
+
+
+
     private fun setupCurrentEntity(){
         if(viewModel.currentEntity.value !=null){
             binding.current=viewModel.currentEntity.value
-            Picasso.get().load(viewModel.currentEntity.value!!.user.profile_image.medium).into(binding.profileImage)
+            Picasso.get().load(viewModel.currentEntity.value!!.user.profile_image.medium).into(
+                binding.profileImage
+            )
         }
         /*else{
             binding.favoritesDescription.text=getString(R.string.no_description)
@@ -65,7 +77,10 @@ class PhotosFragment : BaseFragment(),IPhotoAdapterV2 {
         binding.favoritesRecyclerView
         binding.favoritesRecyclerView.setHasFixedSize(true)
         binding.favoritesRecyclerView.itemAnimator = null
-        binding.favoritesRecyclerView.layoutManager = StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL)
+        binding.favoritesRecyclerView.layoutManager = StaggeredGridLayoutManager(
+            3,
+            StaggeredGridLayoutManager.VERTICAL
+        )
         mAdapter = PhotoAdapterV2(this)
         binding.favoritesRecyclerView.adapter = mAdapter
     }
@@ -80,11 +95,11 @@ class PhotosFragment : BaseFragment(),IPhotoAdapterV2 {
 
     private fun observerFavorites(){
         viewModel.photoListSaved.observe(viewLifecycleOwner, Observer {
-            if(!it.isNullOrEmpty()){
-                binding.containerErrorImages.visibility=View.GONE
+            if (!it.isNullOrEmpty()) {
+                binding.containerErrorImages.visibility = View.GONE
                 mAdapter.setData(it.toMutableList())
-            }else{
-                binding.containerErrorImages.visibility=View.VISIBLE
+            } else {
+                binding.containerErrorImages.visibility = View.VISIBLE
                 mAdapter.setData(mutableListOf<UnsplashPhoto_Entity>())
             }
         })

@@ -8,6 +8,7 @@
     <color name="colorSecondaryDarkColor">#9f0000</color>
     <color name="colorPrimaryTextColor">#ffffff</color>
     <color name="colorSecondaryTextColor">#000000</color>
+    <color name="colorSearch">#EBEEEE</color>
 </resources>
 
 

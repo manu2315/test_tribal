@@ -31,6 +31,12 @@
                 app:layout_scrollFlags="scroll|enterAlways"
                 android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
                 app:popupTheme="@style/ThemeOverlay.MaterialComponents.Light" >
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/search"
+                    android:background="@color/colorSearch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/profile_image"
                     android:layout_width="?attr/actionBarSize"
@@ -54,16 +60,18 @@
                 android:id="@+id/favorites_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:layout_scrollFlags="scroll|enterAlways"
                 tools:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
                 tools:listitem="@layout/item_photo"
-                tools:spanCount="3"
-                app:layout_scrollFlags="scroll|enterAlways"
-                app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                />
+                tools:spanCount="3" />
+
             <LinearLayout
                 android:id="@+id/container_error_images"
                 android:layout_width="match_parent"

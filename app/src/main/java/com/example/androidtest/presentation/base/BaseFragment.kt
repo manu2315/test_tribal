@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.*
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.core.view.get
@@ -15,6 +16,7 @@ import com.airbnb.lottie.LottieAnimationView
 import com.example.androidtest.R
 import com.example.androidtest.presentation.utils.setSupportActionBar
 import com.google.android.material.snackbar.Snackbar
+import timber.log.Timber
 
 
 open class BaseFragment :Fragment(){
@@ -52,11 +54,19 @@ open class BaseFragment :Fragment(){
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
+        if(menuId != 0){
+            inflater.inflate(menuId,menu)
+        }
+        if(functionOnCreateOptionsMenu != null){
+            functionOnCreateOptionsMenu!!.invoke()
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return super.onOptionsItemSelected(item)
+        toolbarMenuOption(itemSelected = item)
+        return true
     }
+
 
     private fun onBackPress(owner: LifecycleOwner) {
         requireActivity().onBackPressedDispatcher
@@ -69,6 +79,8 @@ open class BaseFragment :Fragment(){
 
     open fun onBackPressFun() {}
 
+    /*Toolbar function*/
+    open fun toolbarMenuOption(itemSelected: MenuItem) {}
 
     /*ProgressDialog functions*/
     private fun setupProgressDialog() {
@@ -178,4 +190,32 @@ open class BaseFragment :Fragment(){
         this.functionOnCreateOptionsMenu = functionOnCreateOptionsMenu
     }
 
+    fun searchViewQuery(
+        searchView: SearchView,
+        onQueryTextChange: (String?) -> Unit?,
+        onQueryTextSubmit: (String?) -> Unit?,
+        onCloseListener: () -> Unit?
+    ) {
+        searchView.apply {
+            setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    Timber.e("search query:${query}")
+                    onQueryTextSubmit(query)
+                    return true
+                }
+
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    Timber.e("search newText:${newText}")
+                    onQueryTextChange(newText)
+                    return true
+                }
+            })
+
+            setOnCloseListener {
+                onCloseListener()
+                return@setOnCloseListener false
+            }
+        }
+
+    }
 }
