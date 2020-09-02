@@ -21,11 +21,42 @@
         <item name="android:textColor">@color/colorPrimaryTextColor</item>
         <item name="android:background">@drawable/rounded_corner_button</item>
     </style>
-
+    
 
     <style name="AppShapeAppearance.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
         <item name="cornerFamily">cut</item>
         <item name="cornerSize">14dp</item>
+    </style>
+
+    <style name="TextView_Numbers">
+        <item name="android:textColor">@android:color/holo_green_light</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20dp</item>
+    </style>
+
+    <style name="TextView_Title">
+        <item name="android:textColor">@color/colorSecondaryTextColor</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">15dp</item>
+    </style>
+    <style name="TextView_User_Name">
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:textColor">@color/colorSecondaryTextColor</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">25dp</item>
+    </style>
+
+    <style name="TextView_Description">
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:textColor">@color/colorPrimaryLightColor</item>
+        <item name="android:textSize">10dp</item>
+    </style>
+
+    <style name="TextView_Location">
+        <item name="android:textColor">@android:color/holo_blue_dark</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
 
