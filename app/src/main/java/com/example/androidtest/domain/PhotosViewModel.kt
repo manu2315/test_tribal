@@ -61,4 +61,15 @@ class PhotosViewModel(
         val x = unsplashRepository.findById(id)
         Timber.e("room findById unsplashPhoto getByIds ${x}")
     }
+
+    fun searchByQuery(query:String?){
+        if(!query.isNullOrEmpty()){
+            val dataFilter = photoListSaved.value?.filter {
+                it.user.username.toLowerCase().contains(query.toLowerCase()) ||
+                        it.user.name.toLowerCase().contains(query.toLowerCase())
+            }
+            _photoListSaved.postValue(dataFilter)
+
+        }
+    }
 }

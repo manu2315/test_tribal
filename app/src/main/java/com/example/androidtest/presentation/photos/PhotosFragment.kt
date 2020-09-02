@@ -3,6 +3,7 @@ package com.example.androidtest.presentation.photos
 import android.os.Bundle
 import android.view.*
 import android.widget.EditText
+import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat.getColor
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -55,10 +56,17 @@ class PhotosFragment : BaseFragment(),IPhotoAdapterV2 {
             searchView.findViewById<View>(androidx.appcompat.R.id.search_src_text) as EditText
         searchEditText.setTextColor(getColor(requireContext(),R.color.colorPrimaryLightColor))
         searchEditText.setHintTextColor(getColor(requireContext(),R.color.colorSecondaryTextColor))
-
+        setupSearchView(binding.search)
     }
 
 
+    private fun setupSearchView(searchView: SearchView){
+        searchViewQuery(
+            searchView,
+            {viewModel.searchByQuery(it)},
+            {viewModel.searchByQuery(it)},
+            {getFavoritesPhotos()})
+    }
 
 
     private fun setupCurrentEntity(){
