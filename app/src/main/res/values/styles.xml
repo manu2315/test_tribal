@@ -17,9 +17,11 @@
     </style>
 
     <style name="Buttom_Style">
-        <item name="android:background">@drawable/rounded_corner_button</item>
+        <item name="android:layout_marginTop">10dp</item>
         <item name="android:textColor">@color/colorPrimaryTextColor</item>
+        <item name="android:background">@drawable/rounded_corner_button</item>
     </style>
+
 
     <style name="AppShapeAppearance.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
         <item name="cornerFamily">cut</item>
