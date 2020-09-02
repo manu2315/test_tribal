@@ -69,7 +69,10 @@
                 app:layout_constraintTop_toBottomOf="@id/edit_text_user_info"
                 app:layout_constraintVertical_bias="0.0"
                 tools:text="He is the GOAT" />
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </com.google.android.material.card.MaterialCardView>
 
 </layout>

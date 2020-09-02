@@ -55,9 +55,8 @@ class PhotosFragment : BaseFragment(),IPhotoAdapterV2 {
         mAdapter = PhotoAdapterV2(this)
         binding.favoritesRecyclerView.adapter = mAdapter
     }
-
+    private fun jobGetFavorites()=viewModel.getAll()
     private fun getFavoritesPhotos(){
-        fun jobGetFavorites()=viewModel.getAll()
         GlobalScope.launch(Dispatchers.Main) {
             showProgressBar()
             jobGetFavorites().join()
@@ -68,7 +67,11 @@ class PhotosFragment : BaseFragment(),IPhotoAdapterV2 {
     private fun observerFavorites(){
         viewModel.photoListSaved.observe(viewLifecycleOwner, Observer {
             if(!it.isNullOrEmpty()){
+                binding.containerErrorImages.visibility=View.GONE
                 mAdapter.setData(it.toMutableList())
+            }else{
+                binding.containerErrorImages.visibility=View.VISIBLE
+                mAdapter.setData(mutableListOf<UnsplashPhoto_Entity>())
             }
         })
     }
@@ -79,6 +82,7 @@ class PhotosFragment : BaseFragment(),IPhotoAdapterV2 {
             showProgressBar()
             jobDeletedFavorites().join()
             hideProgressBar()
+            getFavoritesPhotos()
         }
     }
     override fun setData(dataSet: MutableList<UnsplashPhoto_Entity>) {
@@ -87,7 +91,8 @@ class PhotosFragment : BaseFragment(),IPhotoAdapterV2 {
 
     override fun removeData(position: Int, item: UnsplashPhoto_Entity) {
         deleteFavoritesPhotos(item)
-        mAdapter.removeData(position)
+
+
     }
 
 
