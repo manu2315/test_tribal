@@ -20,5 +20,6 @@
     <string name="no_description">No description</string>
     <string name="search_title">Search</string>
     <string name="location">Location</string>
+    <string name="settings">Settings</string>
 
 </resources>
