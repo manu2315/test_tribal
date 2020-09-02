@@ -30,13 +30,11 @@ class MainActivity : BaseActivity() {
         //val navigationItemSelectedListener: BottomNavigationView.OnNavigationItemSelectedListener =
         setUpNavigation()
         setupBottomNavigationView()
+        initUnsplashPickerActivity()
+        mBinding.fab.setOnClickListener {
+            initUnsplashPickerActivity()
+        }
 
-        startActivityForResult(
-            UnsplashPickerActivity.getStartingIntent(
-                this,
-                true
-            ), REQUEST_CODE
-        )
 
     }
 
@@ -60,6 +58,15 @@ class MainActivity : BaseActivity() {
 
             Toast.makeText(this, "number of selected photos: " + photos?.size, Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun initUnsplashPickerActivity(){
+        startActivityForResult(
+            UnsplashPickerActivity.getStartingIntent(
+                this,
+                false
+            ), REQUEST_CODE
+        )
     }
     private fun moveToHome(){
         if (Navigation.findNavController(this,mBinding.navHostFragment.id).currentDestination?.id != R.id.tasksFragment) {

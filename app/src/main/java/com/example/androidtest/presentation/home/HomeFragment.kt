@@ -13,6 +13,7 @@ import com.example.androidtest.databinding.FragmentHomeBinding
 import com.example.androidtest.domain.PhotosViewModel
 import com.example.androidtest.presentation.adapters.PhotoAdapter
 import com.example.androidtest.presentation.base.BaseFragment
+import com.example.androidtest.presentation.utils.Utils
 import com.example.androidtest.presentation.utils.convertToKotlinDataClass
 import com.example.androidtest.presentation.utils.convertToRoomEntity
 import com.example.androidtest.presentation.utils.getUnsplashPhotoList
@@ -47,25 +48,24 @@ class HomeFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.lifecycleOwner=this.viewLifecycleOwner
-        val user= UserLogged.getUser()
-        //binding.welcomeText.text=getString(R.string.welcome_text, user?.name, user?.email)
-        //Glide.with(view).load(user?.photoUrl).into(binding.profileImage)
         //binding.animationView.playAnimation()
         //showProgressBar()
 
-        Glide.with(view).load(user?.photoUrl).into(binding.data.profile_image)
-        binding.data.name_user.text = user?.name
-        binding.data.description.text = user?.email
         setupRecyclerView()
 
         viewModel.photoList.observe(viewLifecycleOwner, Observer {
             mAdapter.setListOfPhotos(it.convertToKotlinDataClass())
             val j=it.convertToRoomEntity()
-            fun jobInsertSelectedFromActivity()=viewModel.insertByList(j)
+            Glide.with(view).load(j[0].user.profile_image.medium).into(binding.data.profileImage)
+            binding.data.item=j[0]
+            binding.data.utils=Utils
+
+
+            /*fun jobInsertSelectedFromActivity()=viewModel.insertByList(j)
             GlobalScope.launch(Dispatchers.Main) {
                 jobInsertSelectedFromActivity().join()
                 viewModel.getAll()
-            }
+            }*/
         })
 
     }
