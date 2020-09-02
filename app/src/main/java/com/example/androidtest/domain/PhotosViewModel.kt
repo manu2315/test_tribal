@@ -20,6 +20,9 @@ class PhotosViewModel(
     private val _photoList= MutableLiveData<ArrayList<UnsplashPhoto>>()
     val photoList:LiveData<ArrayList<UnsplashPhoto>> = _photoList
 
+    private val _photoListSaved= MutableLiveData<List<UnsplashPhoto_Entity>>()
+    val photoListSaved:LiveData<List<UnsplashPhoto_Entity>> = _photoListSaved
+
     fun setUnsplashPhotoList(unsplashList:ArrayList<UnsplashPhoto>){
         _photoList.postValue(unsplashList)
     }
@@ -40,6 +43,7 @@ class PhotosViewModel(
 
     fun getAll()= viewModelScope.launch(dispatcher) {
         val x= unsplashRepository.getAll()
+        _photoListSaved.postValue(x)
         Timber.e("room getAll unsplashPhoto getAll ${x}")
     }
     fun findListByIds(userIds: IntArray)= viewModelScope.launch(dispatcher) {

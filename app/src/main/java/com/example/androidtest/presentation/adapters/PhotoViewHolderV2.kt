@@ -3,6 +3,7 @@ package com.example.androidtest.presentation.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.androidtest.data.datasource.database.entities.UnsplashPhoto_Entity
 import com.example.androidtest.databinding.RowFavoritePictureBinding
 import com.example.androidtest.interfaces.IPhotoAdapterV2
@@ -16,7 +17,11 @@ class PhotoViewHolderV2 (val binding:RowFavoritePictureBinding):RecyclerView.Vie
     ){
         binding.item=item
         Timber.e("photo photoViewHolder")
-        iPhotoAdapterV2.removeData(position)
+        Glide.with(binding.root).load(item.urls.small).into(binding.itemPhotoFavorite)
+        binding.tvDeletePhoto.setOnClickListener {
+            iPhotoAdapterV2.removeData(position,item)
+        }
+
         binding.executePendingBindings()
     }
 
