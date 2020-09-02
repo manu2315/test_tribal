@@ -16,6 +16,7 @@ import com.airbnb.lottie.LottieAnimationView
 import com.example.androidtest.R
 import com.example.androidtest.presentation.utils.setSupportActionBar
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
 import timber.log.Timber
 
 
@@ -217,5 +218,10 @@ open class BaseFragment :Fragment(){
             }
         }
 
+    }
+
+    fun signOut(){
+        val auth= FirebaseAuth.getInstance()
+        auth.signOut()
     }
 }

@@ -60,5 +60,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             tool:text="Angelica Mathews"
             />
+        <!--<androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/sign_out_btn"
+            android:layout_width="@dimen/bton_width_home"
+            android:layout_height="wrap_content"
+            android:text="@string/sing_out"
+            android:layout_marginEnd="30dp"
+            style="@style/Buttom_Style"
+            app:layout_constraintTop_toBottomOf="@+id/description"
+            app:layout_constraintEnd_toStartOf="@+id/view_div"
+            />-->
     </LinearLayout>
 </layout>
