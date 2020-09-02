@@ -18,20 +18,38 @@
             android:fitsSystemWindows="true"
             android:background="@color/colorPrimaryTextColor"
             >
-            <androidx.appcompat.widget.Toolbar
+            <!--android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"-->
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/collapsing_toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="@color/colorPrimaryTextColor"
-                android:id="@+id/toolbar"
-                app:title="Home"
-                app:layout_scrollFlags="scroll|enterAlways"
-                android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
-                app:popupTheme="@style/ThemeOverlay.MaterialComponents.Light" />
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                app:contentScrim="?attr/colorPrimary"
+                app:expandedTitleMarginEnd="64dp"
+                app:expandedTitleMarginStart="48dp"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+                <androidx.appcompat.widget.Toolbar
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@color/colorPrimaryTextColor"
+                    android:id="@+id/toolbar"
+                    app:title=""
+                    app:layout_scrollFlags="scroll|enterAlways"
+                    android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
+                    app:popupTheme="@style/ThemeOverlay.MaterialComponents.Light"
+                    />
+                <!--
 
-            <include
-                android:id="@+id/data"
-                layout="@layout/user_data"
-                />
+
+                app:popupTheme="@style/ThemeOverlay.MaterialComponents.Light"-->
+                <include
+                    android:id="@+id/data"
+                    layout="@layout/user_data"
+
+                    />
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.recyclerview.widget.RecyclerView
@@ -41,8 +59,10 @@
             tools:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
             tools:listitem="@layout/item_photo"
             tools:spanCount="3"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
             />
+        <!--app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
 <!--
