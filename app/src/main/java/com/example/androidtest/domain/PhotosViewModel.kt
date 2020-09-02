@@ -23,6 +23,9 @@ class PhotosViewModel(
     private val _photoListSaved= MutableLiveData<List<UnsplashPhoto_Entity>>()
     val photoListSaved:LiveData<List<UnsplashPhoto_Entity>> = _photoListSaved
 
+    private val _photoFilterListSaved= MutableLiveData<List<UnsplashPhoto_Entity>>()
+    val photoFilterListSaved:LiveData<List<UnsplashPhoto_Entity>> = _photoFilterListSaved
+
     private val _currentEntity= MutableLiveData<UnsplashPhoto_Entity>()
     val currentEntity:LiveData<UnsplashPhoto_Entity> = _currentEntity
 
@@ -68,8 +71,9 @@ class PhotosViewModel(
                 it.user.username.toLowerCase().contains(query.toLowerCase()) ||
                         it.user.name.toLowerCase().contains(query.toLowerCase())
             }
-            _photoListSaved.postValue(dataFilter)
-
+            _photoFilterListSaved.postValue(dataFilter)
+        }else{
+            _photoFilterListSaved.postValue(photoListSaved.value)
         }
     }
 }

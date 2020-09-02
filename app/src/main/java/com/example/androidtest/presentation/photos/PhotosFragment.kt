@@ -103,14 +103,22 @@ class PhotosFragment : BaseFragment(),IPhotoAdapterV2 {
 
     private fun observerFavorites(){
         viewModel.photoListSaved.observe(viewLifecycleOwner, Observer {
-            if (!it.isNullOrEmpty()) {
-                binding.containerErrorImages.visibility = View.GONE
-                mAdapter.setData(it.toMutableList())
-            } else {
-                binding.containerErrorImages.visibility = View.VISIBLE
-                mAdapter.setData(mutableListOf<UnsplashPhoto_Entity>())
-            }
+            validateAdapter(it)
         })
+
+        viewModel.photoFilterListSaved.observe(viewLifecycleOwner, Observer {
+            validateAdapter(it)
+        })
+    }
+
+    private fun validateAdapter(list: List<UnsplashPhoto_Entity>){
+        if (!list.isNullOrEmpty()) {
+            binding.containerErrorImages.visibility = View.GONE
+            mAdapter.setData(list.toMutableList())
+        } else {
+            binding.containerErrorImages.visibility = View.VISIBLE
+            mAdapter.setData(mutableListOf<UnsplashPhoto_Entity>())
+        }
     }
 
     private fun deleteFavoritesPhotos(item: UnsplashPhoto_Entity){
