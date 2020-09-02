@@ -8,3 +8,4 @@ fun Fragment.setSupportActionBar(toolbar: Toolbar? = null) {
     (activity as AppCompatActivity).setSupportActionBar(toolbar)
     setHasOptionsMenu(true)
 }
+

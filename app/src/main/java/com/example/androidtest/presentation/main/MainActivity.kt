@@ -4,22 +4,24 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.example.androidtest.R
 import com.example.androidtest.databinding.ActivityMainBinding
+import com.example.androidtest.domain.PhotosViewModel
 import com.example.androidtest.presentation.base.BaseActivity
 import com.unsplash.pickerandroid.photopicker.data.UnsplashPhoto
 import com.unsplash.pickerandroid.photopicker.presentation.UnsplashPickerActivity
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class MainActivity : BaseActivity() {
     private lateinit var mBinding:ActivityMainBinding
     private val REQUEST_CODE=1
     var mPhotos: ArrayList<UnsplashPhoto>?=null
+    val viewModel: PhotosViewModel by viewModel()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding=DataBindingUtil.setContentView(this, R.layout.activity_main)
@@ -28,6 +30,7 @@ class MainActivity : BaseActivity() {
         //val navigationItemSelectedListener: BottomNavigationView.OnNavigationItemSelectedListener =
         setUpNavigation()
         setupBottomNavigationView()
+
         startActivityForResult(
             UnsplashPickerActivity.getStartingIntent(
                 this,
@@ -50,8 +53,11 @@ class MainActivity : BaseActivity() {
             val photos: ArrayList<UnsplashPhoto>? = data?.getParcelableArrayListExtra(UnsplashPickerActivity.EXTRA_PHOTOS)
             mPhotos = photos
             // showing the preview
-            //mAdapter.setListOfPhotos(photos)
             // telling the user how many have been selected
+            if(!mPhotos.isNullOrEmpty()){
+                viewModel.setUnsplashPhotoList(mPhotos!!)
+            }
+
             Toast.makeText(this, "number of selected photos: " + photos?.size, Toast.LENGTH_SHORT).show()
         }
     }
