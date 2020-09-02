@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_tasksFragment_to_addCollaboratorFragment"
             app:destination="@id/addCollaboratorFragment" />
+        <action
+            android:id="@+id/action_tasksFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
     </fragment>
     <fragment
         android:id="@+id/collaboratorFragment"
@@ -30,4 +33,9 @@
         android:name="com.example.androidtest.presentation.addCollaborator.LocationFragment"
         android:label="fragment_add_collaborator"
         tools:layout="@layout/fragment_location" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.androidtest.presentation.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
 </navigation>

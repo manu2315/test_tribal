@@ -26,8 +26,6 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         mBinding=DataBindingUtil.setContentView(this, R.layout.activity_main)
         supportActionBar?.hide()
-        //mBinding.bottomNav.setupWithNavController(Navigation.findNavController(this,R.id.nav_host_fragment))
-        //val navigationItemSelectedListener: BottomNavigationView.OnNavigationItemSelectedListener =
         setUpNavigation()
         setupBottomNavigationView()
         initUnsplashPickerActivity()
@@ -90,6 +88,13 @@ class MainActivity : BaseActivity() {
             .navigate(R.id.action_tasksFragment_to_collaboratorFragment)
     }
 
+    private fun moveToSettings(){
+        if (Navigation.findNavController(this,mBinding.navHostFragment.id).currentDestination?.id != R.id.tasksFragment) {
+            Navigation.findNavController(this,mBinding.navHostFragment.id).popBackStack()
+        }
+        Navigation.findNavController(this,mBinding.navHostFragment.id)
+            .navigate(R.id.action_tasksFragment_to_settingsFragment)
+    }
 
 
     private fun setupBottomNavigationView(){
@@ -97,16 +102,16 @@ class MainActivity : BaseActivity() {
             when(item.itemId){
                 R.id.page_0 -> {
                     moveToHome()
-
                 }
                 R.id.page_1 -> {
 
                     moveToMyCollaborators()
-                    //Toast.makeText(this,"Hola2",Toast.LENGTH_SHORT).show()
                 }
                 R.id.page_2 -> {
                     moveToAddCollaborator()
-                    //Toast.makeText(this,"Hola3",Toast.LENGTH_SHORT).show()
+                }
+                R.id.page_3->{
+                    moveToSettings()
                 }
 
             }
